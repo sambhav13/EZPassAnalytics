@@ -1,0 +1,29 @@
+create table AllergenCategory(orgId varchar(255),storeId varchar(255),id int,allergenName varchar(255),group_id varchar(20),subcategoryId varchar(40));
+insert into AllergenCategory values("org1","s1",1,"A1","G1","S1");
+insert into AllergenCategory values("org1","s1",2,"A2","G1","S1");
+insert into AllergenCategory values("org1","s1",3,"A3","G2","S2");
+insert into AllergenCategory values("org1","s1",4,"A4","G2","S2");
+
+
+
+create table UserAllergen(orgId varchar(255),storeId varchar(255),userId varchar(255),Allergen varchar(255));
+alter table UserAllergen CHANGE Allergens Allergen varchar(255);
+
+insert into UserAllergen values("org1","s1","u1","A1");
+insert into UserAllergen values("org1","s1","u1","A2");
+insert into UserAllergen values("org1","s1","u1","A3");
+insert into UserAllergen values("org1","s1","u1","A4");
+
+
+create table UserAllergenProfile(orgId varchar(255),storeId varchar(255),userId varchar(255),orderId varchar(255),time Timestamp,products varchar(255),	Allergens varchar(255));
+
+insert into UserAllergenProfile values("org1","s1","u1","o1","2016-11-11 15:34:34","p1","A1,A2");
+insert into UserAllergenProfile values("org1","s1","u1","o1","2016-11-11 15:34:34","p2","A3,A4");
+insert into UserAllergenProfile values("org1","s1","u1","o2","2016-11-18 11:34:34","p1","A1,A2");
+insert into UserAllergenProfile values("org1","s1","u1","o3","2016-11-25 14:34:34","p1","A1,A2");
+insert into UserAllergenProfile values("org1","s1","u2","o5","2016-11-26 14:34:34","p1","A1,A2");  
+
+
+create table userVisit (orgId varchar(255),storeId varchar(255),userId varchar(255),time Timestamp,visitCount int);
+insert into userVisit values("org1","s1","u1","2016-11-11 11:10:10",1);
+org1  | s1      |   11 |    10 |  116 | 2016-11-11 11:10:10 | u1     |          1 

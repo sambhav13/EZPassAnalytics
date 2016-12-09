@@ -1,0 +1,63 @@
+
+
+CREATE TABLE `dailyVisitorsCategoryWise` (`orgId` int(10) DEFAULT NULL,`storeId` int(10) DEFAULT NULL,`day` int(5) NOT NULL,`month` int(5) NOT NULL,`year` int(5) NOT NULL,`time` timestamp NOT NULL,`categoryId` int(10) NOT NULL,`converted` int(10) NOT NULL,`failed` int(10) NOT NULL,`total` int(10) NOT NULL);
+
+
+NEW/REPEAT VISITORS
+
+//"orgId",$"storeId",$"userId",timeTrim($"time").alias("time"),$"visitCount"
+create table userVisit(orgId int(10),storeId int(10),userId varchar(255),time Timestamp,visitCount Int);
+CREATE TABLE `dailyVisitors` (`orgId` int(10) DEFAULT NULL, `storeId` int(10) DEFAULT NULL, `day` int(5) NOT NULL, `month` int(5) NOT NULL, `year` int(5) NOT NULL, `time` timestamp NOT NULL, `new_visitors` int(10) NOT NULL, `repeated_visitors` int(10) NOT NULL,`total` int(10) NOT NULL);
+
+
+
+DailyCategorySale
+create table dailyCategorySale(orgId int(10),storeId int(10),time Timestamp,categoryId int(10),sale int);
+create table dailyCategorySaleCount(orgId int(10),storeId int(10),day int,month int,year int,time Timestamp,categoryId int(10),saleCountAgg int);
+
+
+DailyCategorySalePrice
+create table dailyCategorySalePrice(orgId int(10),storeId int(10),time Timestamp,categoryId int(10),saleAmount double);
+create table dailyCategorySalePriceAgg(orgId int(10),storeId int(10),day int,month int,year int,time Timestamp,categoryId int(10),saleAmountAgg double);
+
+
+CREATE TABLE `dailyCategorySaleWithCountAgg` (`orgId` int(10) DEFAULT NULL,`storeId` int(10) DEFAULT NULL,`day` int(5) NOT NULL, `month` int(5) NOT NULL,`year` int(5) NOT NULL, `time` timestamp NOT NULL,  `categoryId` int(10) NOT NULL, `saleAmountAgg` double DEFAULT NULL,`saleCountAgg` double DEFAULT NULL);
+
+
+DailyCategoryFootFall
+create table dailyCategoryFootFallTemp(orgId int(10),storeId int(10),time Timestamp,categoryId int(10),footfall int);
+create table DailyCategoryFootFallCount(orgId int(10),storeId int(10),day int,month int,year int,,time Timestamp,categoryId int(10),footfallCount int);
+
+CREATE TABLE `dailyCategoryFootfall`(`orgId` int(10) DEFAULT NULL,`storeId` int(10) DEFAULT NULL,`day` int(5) NOT NULL,`month` int(5) NOT NULL,`year` int(5) NOT NULL,`time` timestamp NOT NULL,`categoryId` int(10) NOT NULL,`footfallCount` int(10) NOT NULL);
+
+
+
+
+
+
+
+
+
+
+
+////For dailyVisitors table
+
+create table userFirstVisit(orgId int,storeId int,userId varchar(255),firstTime Timestamp,count int);
+create table userVisitType(orgId int,storeId int,userId varchar(255),time Timestamp,visitType varchar(255));
+
+
+
+CREATE TABLE events (eventId int(10),orgId int(10),storeId int(10),userId varchar(50),rackId int(10),locEventType int(5),createdStamp timestamp);
+insert into events values(0,02,542,"1AD4",5524,0,"2016-12-01 12:18:58");
+
+"eventId":0,"orgId":02,"storeId":542, "userId":"1AD4","rackId":5524,"locEventType":0,"createdStamp":"2016-12-01 12:18:58"
+
+
+
+
+
+
+
+//////for dailyVisitorsCategoryWise
+
+CREATE TABLE converted_static(orgId int,storeId int,userId varchar(255),categoryId int,time Timestamp);
