@@ -2,3 +2,6 @@ compile
 assembly
 eclipse
 clean
+eclipse
+compile
+eclipse

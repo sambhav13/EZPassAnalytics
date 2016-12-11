@@ -4,7 +4,7 @@
 		module="ezpassanalytics-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20161205103708"
+		publication="20161211183921"
 		e:scalaVersion="2.10" e:sbtVersion="0.13"
 	>
 		<description>
@@ -33,10 +33,13 @@
 		<artifact name="ezpassanalytics-build" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 	</publications>
 	<dependencies>
-		<dependency org="org.scala-lang" name="scala-compiler" rev="2.10.6" conf="scala-tool->default,optional(default)"/>
-		<dependency org="org.scala-lang" name="scala-library" rev="2.10.6" conf="scala-tool->default,optional(default);provided->default(compile)"/>
-		<dependency org="org.scala-sbt" name="sbt" rev="0.13.12" conf="provided->default(compile)"/>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.10.4" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.10.4" conf="scala-tool->default,optional(default);provided->default(compile)"/>
+		<dependency org="org.scala-sbt" name="sbt" rev="0.13.8" conf="provided->default(compile)"/>
 		<dependency org="com.typesafe.sbteclipse" name="sbteclipse-plugin" rev="4.0.0" conf="compile->default(compile)" e:scalaVersion="2.10" e:sbtVersion="0.13"/>
 		<dependency org="com.eed3si9n" name="sbt-assembly" rev="0.14.3" conf="compile->default(compile)" e:scalaVersion="2.10" e:sbtVersion="0.13"/>
+		<override org="org.scala-lang" module="scala-library" matcher="exact" rev="2.10.4"/>
+		<override org="org.scala-lang" module="scala-compiler" matcher="exact" rev="2.10.4"/>
+		<override org="org.scala-lang" module="scala-reflect" matcher="exact" rev="2.10.4"/>
 	</dependencies>
 </ivy-module>
